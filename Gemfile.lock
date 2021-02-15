@@ -115,6 +115,7 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
+    jwt (2.2.2)
     listen (3.4.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -156,6 +157,8 @@ GEM
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
+    rack-cors (1.1.1)
+      rack (>= 2.0.0)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (6.1.2.1)
@@ -267,12 +270,14 @@ DEPENDENCIES
   guard-process
   guard-rspec
   jbuilder (~> 2.0)
+  jwt
   pg
   pg_query
   pg_search
   pghero
   puma
   rack
+  rack-cors
   rails (~> 6.1.1)
   rails-controller-testing
   rspec-rails
