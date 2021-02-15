@@ -21,6 +21,10 @@ class ApplicationController < ActionController::Base
     params.deep_transform_keys!(&:underscore)
   end
 
+  def current_user
+    @current_user ||= super || User.find(@current_user_id)
+  end
+
   def signed_in?
     current_user.present?
   end
