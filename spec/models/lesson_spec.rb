@@ -2,11 +2,11 @@
 
 require 'rails_helper'
 
-RSpec.describe Course, type: :model do
-  subject { create(:course) }
+RSpec.describe Lesson, type: :model do
+  subject { create(:lesson) }
 
   describe 'associations' do
-    it { should have_many(:lessons) }
+    it { should belong_to(:course) }
   end
 
   it 'is valid with valid attributes' do
