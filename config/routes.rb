@@ -6,7 +6,11 @@ Rails.application.routes.draw do
 
     resource :user, only: %i[show update]
     resources :courses, only: %i[index create update show destroy] do
-      resources :lessons, only: %i[index create update show destroy]
+      resources :lessons, only: %i[index create update show destroy] do
+        resources :questions, only: %i[index create update show destroy] do
+          resources :question_options, only: %i[index create update show destroy]
+        end
+      end
     end
   end
 end
