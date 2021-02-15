@@ -6,6 +6,7 @@ gem 'rails', '~> 6.1.1'
 gem 'rack'
 
 # Authorization
+gem 'rolify'
 gem 'cancancan'
 
 # DB
@@ -41,4 +42,5 @@ group :test do
   gem 'guard-process', require: false
   gem 'rails-controller-testing'
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end

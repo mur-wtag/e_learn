@@ -12,9 +12,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def assign_role
+    current_user.add_role params[:role].to_sym
+    render :show
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:email, :password, role_ids: [])
   end
 end
