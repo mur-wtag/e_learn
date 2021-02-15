@@ -18,6 +18,8 @@ Dir['./spec/support/shared_examples/*.rb'].sort.each do |shared_example|
   require shared_example
 end
 
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+
 FactoryBot::SyntaxRunner.class_eval do
   include RSpec::Mocks::ExampleMethods
 end
@@ -86,6 +88,8 @@ RSpec.configure do |config|
       example.run
     end
   end
+
+  config.include RequestSpecHelper, type: :request
 end
 
 Shoulda::Matchers.configure do |config|
