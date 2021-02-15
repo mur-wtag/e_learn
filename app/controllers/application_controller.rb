@@ -11,16 +11,18 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user
 
+  rescue_from CanCan::AccessDenied do |_exception|
+    respond_to do |format|
+      format.json { head :forbidden }
+    end
+  end
+
   def underscore_params!
     params.deep_transform_keys!(&:underscore)
   end
 
-  def current_user
-    @current_user ||= super || User.find(@current_user_id)
-  end
-
   def signed_in?
-    @current_user_id.present?
+    current_user.present?
   end
 
   private
