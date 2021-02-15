@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-class Course < ApplicationRecord
-  has_many :lessons, dependent: :destroy
+class Lesson < ApplicationRecord
+  belongs_to :course
 
   validates :name, presence: true
 

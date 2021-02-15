@@ -16,6 +16,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  rescue_from ActiveRecord::RecordNotFound do |_exception|
+    respond_to do |format|
+      format.json { head 404 }
+    end
+  end
+
   def underscore_params!
     params.deep_transform_keys!(&:underscore)
   end
