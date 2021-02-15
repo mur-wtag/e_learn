@@ -16,6 +16,8 @@ gem 'pg_query'
 
 # Authentication
 gem 'devise'
+gem 'jwt'
+gem 'rack-cors'
 
 # Other backend gems
 gem 'jbuilder', '~> 2.0'
