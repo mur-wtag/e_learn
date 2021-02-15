@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :question_option do
+  factory :answer do
+    user
     question
     content { Faker::Lorem.sentence }
-
-    factory :correct_question_option do
-      correct_answer { true }
-    end
+    answered_question_option_ids { [] }
   end
 end
