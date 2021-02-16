@@ -12,5 +12,9 @@ Rails.application.routes.draw do
         end
       end
     end
+
+    post 'users/:user_id/questions/:question_id/answers', to: 'answers#create', as: :create_user_answer
+    patch 'users/:user_id/questions/:question_id/answers/:id', to: 'answers#update', as: :update_user_answer
+    get 'users/:user_id/questions/:question_id/answers/:id', to: 'answers#show', as: :user_answer
   end
 end
