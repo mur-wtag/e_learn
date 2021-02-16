@@ -4,6 +4,8 @@ class Answer < ApplicationRecord
   belongs_to :user
   belongs_to :question
 
+  # user can write answer for a specific question for once
+  validates :user_id, uniqueness: { scope: :question_id }
   validate :valid_question_option_ids
 
   def to_s

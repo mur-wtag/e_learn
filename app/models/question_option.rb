@@ -5,6 +5,8 @@ class QuestionOption < ApplicationRecord
 
   validates :content, presence: true
 
+  scope :correct_answer, -> { where(correct_answer: true) }
+
   def to_s
     content
   end
