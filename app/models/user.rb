@@ -7,6 +7,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :completed_lessons, dependent: :destroy
+  has_many :lessons, through: :completed_lessons
+
   validates :email, presence: true
   enum role: %i[admin student teacher]
   after_initialize :set_default_role, if: :new_record?
